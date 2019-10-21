@@ -7,14 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD25DC85235C26D7002ABD22 /* RSSChannelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CF9235C21040018CC3E /* RSSChannelPresenter.swift */; };
+		AD25DC87235C26F8002ABD22 /* RSSChannelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DC86235C26F8002ABD22 /* RSSChannelService.swift */; };
+		AD25DC8A235CE569002ABD22 /* RSSFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DC89235CE569002ABD22 /* RSSFeedTableViewController.swift */; };
+		AD25DC8C235CE946002ABD22 /* RSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DC8B235CE946002ABD22 /* RSSFeed.swift */; };
+		AD25DC8E235CE9A9002ABD22 /* RSSFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DC8D235CE9A9002ABD22 /* RSSFeedPresenter.swift */; };
+		AD25DCA0235CF60C002ABD22 /* RSSFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DC9F235CF60C002ABD22 /* RSSFeedTableViewCell.swift */; };
+		AD25DCA2235CFD13002ABD22 /* RSSFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */; };
+		AD25DCA5235CFE65002ABD22 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */; };
+		ADBB9957235E02AA000E767F /* RSSFeedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB9956235E02AA000E767F /* RSSFeedMap.swift */; };
+		ADBB995A235E1376000E767F /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB9959235E1376000E767F /* CommonWebViewController.swift */; };
 		ADCC5CBB235BAF080018CC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CBA235BAF080018CC3E /* AppDelegate.swift */; };
 		ADCC5CBD235BAF080018CC3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CBC235BAF080018CC3E /* SceneDelegate.swift */; };
-		ADCC5CBF235BAF080018CC3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CBE235BAF080018CC3E /* ViewController.swift */; };
 		ADCC5CC2235BAF080018CC3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADCC5CC0235BAF080018CC3E /* Main.storyboard */; };
 		ADCC5CC4235BAF080018CC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADCC5CC3235BAF080018CC3E /* Assets.xcassets */; };
 		ADCC5CC7235BAF080018CC3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADCC5CC5235BAF080018CC3E /* LaunchScreen.storyboard */; };
 		ADCC5CD2235BAF090018CC3E /* WSJ_RSSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CD1235BAF090018CC3E /* WSJ_RSSTests.swift */; };
 		ADCC5CDD235BAF090018CC3E /* WSJ_RSSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CDC235BAF090018CC3E /* WSJ_RSSUITests.swift */; };
+		ADCC5CEC235BAF800018CC3E /* RSSChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CEB235BAF800018CC3E /* RSSChannel.swift */; };
+		ADCC5CF1235BB0C20018CC3E /* RSSChannelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CF0235BB0C20018CC3E /* RSSChannelTableViewController.swift */; };
+		ADCC5CF3235BB4FF0018CC3E /* RSSChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CF2235BB4FF0018CC3E /* RSSChannelTableViewCell.swift */; };
+		ADCC5CF6235BC6500018CC3E /* channels.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADCC5CF5235BC6500018CC3E /* channels.plist */; };
+		ADCC5CF8235BF5230018CC3E /* DataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +49,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD25DC86235C26F8002ABD22 /* RSSChannelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSChannelService.swift; sourceTree = "<group>"; };
+		AD25DC89235CE569002ABD22 /* RSSFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedTableViewController.swift; sourceTree = "<group>"; };
+		AD25DC8B235CE946002ABD22 /* RSSFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeed.swift; sourceTree = "<group>"; };
+		AD25DC8D235CE9A9002ABD22 /* RSSFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedPresenter.swift; sourceTree = "<group>"; };
+		AD25DC9F235CF60C002ABD22 /* RSSFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedTableViewCell.swift; sourceTree = "<group>"; };
+		AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedService.swift; sourceTree = "<group>"; };
+		AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLFeedParser.swift; sourceTree = "<group>"; };
+		ADBB9956235E02AA000E767F /* RSSFeedMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedMap.swift; sourceTree = "<group>"; };
+		ADBB9959235E1376000E767F /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		ADCC5CB7235BAF080018CC3E /* WSJ-RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WSJ-RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCC5CBA235BAF080018CC3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADCC5CBC235BAF080018CC3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ADCC5CBE235BAF080018CC3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADCC5CC1235BAF080018CC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ADCC5CC3235BAF080018CC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADCC5CC6235BAF080018CC3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +71,12 @@
 		ADCC5CD8235BAF090018CC3E /* WSJ-RSSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WSJ-RSSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADCC5CDC235BAF090018CC3E /* WSJ_RSSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSJ_RSSUITests.swift; sourceTree = "<group>"; };
 		ADCC5CDE235BAF090018CC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADCC5CEB235BAF800018CC3E /* RSSChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSChannel.swift; sourceTree = "<group>"; };
+		ADCC5CF0235BB0C20018CC3E /* RSSChannelTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSChannelTableViewController.swift; sourceTree = "<group>"; };
+		ADCC5CF2235BB4FF0018CC3E /* RSSChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSChannelTableViewCell.swift; sourceTree = "<group>"; };
+		ADCC5CF5235BC6500018CC3E /* channels.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = channels.plist; sourceTree = "<group>"; };
+		ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtractor.swift; sourceTree = "<group>"; };
+		ADCC5CF9235C21040018CC3E /* RSSChannelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSChannelPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +104,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD25DC88235CE52F002ABD22 /* RSSFeed */ = {
+			isa = PBXGroup;
+			children = (
+				AD25DC89235CE569002ABD22 /* RSSFeedTableViewController.swift */,
+				AD25DC8B235CE946002ABD22 /* RSSFeed.swift */,
+				AD25DC8D235CE9A9002ABD22 /* RSSFeedPresenter.swift */,
+				AD25DC9F235CF60C002ABD22 /* RSSFeedTableViewCell.swift */,
+				AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */,
+				ADBB9956235E02AA000E767F /* RSSFeedMap.swift */,
+			);
+			path = RSSFeed;
+			sourceTree = "<group>";
+		};
+		AD25DCA3235CFE4E002ABD22 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ADBB9958235E135C000E767F /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				ADBB9959235E1376000E767F /* CommonWebViewController.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		ADCC5CAE235BAF080018CC3E = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +156,13 @@
 		ADCC5CB9235BAF080018CC3E /* WSJ-RSS */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB9958235E135C000E767F /* Commons */,
+				AD25DCA3235CFE4E002ABD22 /* Utils */,
+				AD25DC88235CE52F002ABD22 /* RSSFeed */,
+				ADCC5CF4235BC6000018CC3E /* LocalData */,
+				ADCC5CEF235BB0A10018CC3E /* RSSChannel */,
 				ADCC5CBA235BAF080018CC3E /* AppDelegate.swift */,
 				ADCC5CBC235BAF080018CC3E /* SceneDelegate.swift */,
-				ADCC5CBE235BAF080018CC3E /* ViewController.swift */,
 				ADCC5CC0235BAF080018CC3E /* Main.storyboard */,
 				ADCC5CC3235BAF080018CC3E /* Assets.xcassets */,
 				ADCC5CC5235BAF080018CC3E /* LaunchScreen.storyboard */,
@@ -126,6 +187,27 @@
 				ADCC5CDE235BAF090018CC3E /* Info.plist */,
 			);
 			path = "WSJ-RSSUITests";
+			sourceTree = "<group>";
+		};
+		ADCC5CEF235BB0A10018CC3E /* RSSChannel */ = {
+			isa = PBXGroup;
+			children = (
+				ADCC5CEB235BAF800018CC3E /* RSSChannel.swift */,
+				ADCC5CF0235BB0C20018CC3E /* RSSChannelTableViewController.swift */,
+				ADCC5CF2235BB4FF0018CC3E /* RSSChannelTableViewCell.swift */,
+				ADCC5CF9235C21040018CC3E /* RSSChannelPresenter.swift */,
+				AD25DC86235C26F8002ABD22 /* RSSChannelService.swift */,
+			);
+			path = RSSChannel;
+			sourceTree = "<group>";
+		};
+		ADCC5CF4235BC6000018CC3E /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				ADCC5CF5235BC6500018CC3E /* channels.plist */,
+				ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */,
+			);
+			path = LocalData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADCC5CF6235BC6500018CC3E /* channels.plist in Resources */,
 				ADCC5CC7235BAF080018CC3E /* LaunchScreen.storyboard in Resources */,
 				ADCC5CC4235BAF080018CC3E /* Assets.xcassets in Resources */,
 				ADCC5CC2235BAF080018CC3E /* Main.storyboard in Resources */,
@@ -259,9 +342,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADCC5CBF235BAF080018CC3E /* ViewController.swift in Sources */,
+				ADCC5CEC235BAF800018CC3E /* RSSChannel.swift in Sources */,
 				ADCC5CBB235BAF080018CC3E /* AppDelegate.swift in Sources */,
+				ADBB9957235E02AA000E767F /* RSSFeedMap.swift in Sources */,
+				ADCC5CF3235BB4FF0018CC3E /* RSSChannelTableViewCell.swift in Sources */,
+				AD25DC8E235CE9A9002ABD22 /* RSSFeedPresenter.swift in Sources */,
+				AD25DCA5235CFE65002ABD22 /* XMLFeedParser.swift in Sources */,
+				ADCC5CF1235BB0C20018CC3E /* RSSChannelTableViewController.swift in Sources */,
+				AD25DC87235C26F8002ABD22 /* RSSChannelService.swift in Sources */,
+				AD25DCA2235CFD13002ABD22 /* RSSFeedService.swift in Sources */,
+				AD25DC85235C26D7002ABD22 /* RSSChannelPresenter.swift in Sources */,
+				ADCC5CF8235BF5230018CC3E /* DataExtractor.swift in Sources */,
+				AD25DCA0235CF60C002ABD22 /* RSSFeedTableViewCell.swift in Sources */,
 				ADCC5CBD235BAF080018CC3E /* SceneDelegate.swift in Sources */,
+				AD25DC8C235CE946002ABD22 /* RSSFeed.swift in Sources */,
+				ADBB995A235E1376000E767F /* CommonWebViewController.swift in Sources */,
+				AD25DC8A235CE569002ABD22 /* RSSFeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

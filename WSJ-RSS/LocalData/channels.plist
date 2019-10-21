@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Channel1</key>
+	<dict>
+		<key>title</key>
+		<string>Opinion</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/RSSOpinion.xml</string>
+	</dict>
+	<key>Channel2</key>
+	<dict>
+		<key>title</key>
+		<string>World News</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/RSSWorldNews.xml</string>
+	</dict>
+	<key>Channel3</key>
+	<dict>
+		<key>title</key>
+		<string>U.S. Business</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml</string>
+	</dict>
+	<key>Channel4</key>
+	<dict>
+		<key>title</key>
+		<string>Markets News</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/RSSMarketsMain.xml</string>
+	</dict>
+	<key>Channel5</key>
+	<dict>
+		<key>title</key>
+		<string>Technology: What&apos;s News</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/RSSWSJD.xml</string>
+	</dict>
+	<key>Channel6</key>
+	<dict>
+		<key>title</key>
+		<string>Lifestyle</string>
+		<key>urlString</key>
+		<string>https://feeds.a.dj.com/rss/RSSLifestyle.xml</string>
+	</dict>
+</dict>
+</plist>
