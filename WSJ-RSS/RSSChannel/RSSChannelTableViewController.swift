@@ -12,12 +12,20 @@ class RSSChannelTableViewController: UITableViewController {
     
     private let presenter = RSSChannelPresenter()
     var channels: [RSSChannel] = []
+    
+    private var activityIndicator = UIActivityIndicatorView(style: .medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.center = CGPoint(x: self.tableView.frame.width / 2, y: self.tableView.frame.minX + 40)
+        self.view.addSubview(activityIndicator)
+        
         self.presenter.attachView(with: self)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
         
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
@@ -26,16 +34,25 @@ class RSSChannelTableViewController: UITableViewController {
         
         self.tableView.estimatedRowHeight = 100
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.getChannels(_:)), for: .valueChanged)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        self.presenter.getChannels()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+        
+        self.presenter.getChannels()
     }
 
     // MARK: - Table view data source
@@ -118,14 +135,30 @@ class RSSChannelTableViewController: UITableViewController {
 
 }
 
+// MARK: Load Channels
+extension RSSChannelTableViewController {
+    @objc func getChannels(_ sender: Any) {
+        self.presenter.getChannels()
+    }
+}
+
 
 extension RSSChannelTableViewController: ChannelView {
     func startLoading() {
-        //
+        print("start loading channels")
     }
     
     func finishLoading() {
-        //
+        print("finished loading channels")
+        
+        DispatchQueue.main.async {
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()
+            }
+            if self.refreshControl?.isRefreshing ?? false {
+                self.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     func setChannels(with channels: [RSSChannel]) {

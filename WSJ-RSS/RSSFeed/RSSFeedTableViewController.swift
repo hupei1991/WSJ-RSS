@@ -11,13 +11,33 @@ import UIKit
 class RSSFeedTableViewController: UITableViewController {
     private let presenter = RSSFeedPresenter()
     private var feeds = [RSSFeed]()
-
+    
+//    @objc dynamic
+    private var activityIndicator = UIActivityIndicatorView(style: .medium)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.center = CGPoint(x: self.tableView.frame.width / 2, y: self.tableView.frame.minX + 40)
+        self.view.addSubview(activityIndicator)
+        
+        // Feeling like not necessary to remove the activityIndicator from the view
+        
+//        let _ = self.observe(\.activityIndicator.isAnimating) {
+//            [weak self] view, change in
+//            if let value = change.newValue {
+//                if value == false {
+//                    self?.activityIndicator.removeFromSuperview()
+//                }
+//            }
+//        }
+        
         self.presenter.attachView(with: self)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        self.navigationItem.largeTitleDisplayMode = .always
+       
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         self.tableView.tableHeaderView = UIView(frame: frame)
@@ -25,9 +45,9 @@ class RSSFeedTableViewController: UITableViewController {
         
         self.tableView.estimatedRowHeight = 150
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.getFeeds(_:)), for: .valueChanged)
         
-        self.presenter.getFeeds()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,8 +56,17 @@ class RSSFeedTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+        
         self.presenter.requestTitle()
+        self.getFeeds(self)
+        
     }
+    
 
     // MARK: - Table view data source
 
@@ -125,19 +154,37 @@ class RSSFeedTableViewController: UITableViewController {
 
 }
 
+// MARK: Load Feeds
+extension RSSFeedTableViewController {
+    @objc func getFeeds(_ sender: Any) {
+        self.presenter.getFeeds()
+    }
+}
+
+// MARK: Channel Setter
 extension RSSFeedTableViewController {
     func setChannel(with channel: RSSChannel) {
         self.presenter.sourceChannel = channel
     }
 }
 
+// MARK: FeedView Delegate
 extension RSSFeedTableViewController: FeedView {
     func startLoading() {
-        print("start loading")
+        print("start loading feeds")
     }
     
     func finishLoading() {
-        print("finished loading")
+        print("finished loading feeds")
+        
+        DispatchQueue.main.async {
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()                
+            }
+            if self.refreshControl?.isRefreshing ?? false {
+                self.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     func receivedFeeds(with feeds: [RSSFeed]) {

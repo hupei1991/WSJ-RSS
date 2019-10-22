@@ -92,7 +92,7 @@ extension XMLFeedParser: XMLParserDelegate {
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         if self.currentFeed != nil {
-            RSSFeedMap.map(for: &currentFeed!, at: self.currentPath.absoluteString, using: string.trimmingCharacters(in: .whitespacesAndNewlines))
+            RSSFeedMap.map(for: &currentFeed!, at: self.currentPath.absoluteString, using: string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression))
         }
     }
 
