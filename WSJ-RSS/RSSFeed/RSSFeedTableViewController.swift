@@ -88,7 +88,7 @@ class RSSFeedTableViewController: UITableViewController {
         if let cell = cell as? RSSFeedTableViewCell {
             cell.feedTitle.text = feed.title
             cell.feedDescription.text = feed.description
-            cell.pubDate.text = feed.pubdate
+            cell.pubDate.text = DateDisplayParser.getDisplay(from: feed.pubdate)
         }
 
         return cell
@@ -179,7 +179,7 @@ extension RSSFeedTableViewController: FeedView {
         
         DispatchQueue.main.async {
             if self.activityIndicator.isAnimating {
-                self.activityIndicator.stopAnimating()                
+                self.activityIndicator.stopAnimating()
             }
             if self.refreshControl?.isRefreshing ?? false {
                 self.refreshControl?.endRefreshing()
