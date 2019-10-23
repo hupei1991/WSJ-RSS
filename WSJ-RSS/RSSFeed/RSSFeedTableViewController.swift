@@ -86,9 +86,13 @@ class RSSFeedTableViewController: UITableViewController {
         // Configure the cell...
         let feed = self.feeds[indexPath.row]
         if let cell = cell as? RSSFeedTableViewCell {
-            cell.feedTitle.text = feed.title
-            cell.feedDescription.text = feed.description
-            cell.pubDate.text = DateDisplayParser.getDisplay(from: feed.pubdate)
+            cell.feedTitle.text = feed.title ?? "Unknown Title"
+            cell.feedDescription.text = feed.description ?? "Unknown Description"
+            if let pubdate = feed.pubdate {
+                cell.pubDate.text = DateDisplayParser.getDisplay(from: pubdate) ?? "[Unknown Publish Date]"
+            } else {
+                cell.pubDate.text = "[Unknown Publish Date]"
+            }
         }
 
         return cell
@@ -96,7 +100,7 @@ class RSSFeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let feed = self.feeds[indexPath.row]
-        if let url = URL(string: feed.link) {
+        if let link = feed.link, let url = URL(string: link) {
             let viewController = CommonWebViewController(url)
             self.navigationController?.pushViewController(viewController, animated: true)
         } else {

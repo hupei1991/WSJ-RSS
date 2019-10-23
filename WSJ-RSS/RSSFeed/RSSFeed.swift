@@ -19,10 +19,10 @@ import Foundation
     <wsj:articletype>Latin America News</wsj:articletype>
  */
 struct RSSFeed {
-    var title: String = "[No Title]"
-    var link: String = ""
-    var description: String = "[No Description]"
-    var guid: String = ""
-    var pubdate: String = "[No Publish Date]"
-    var articletype: String = ""
+    var title: String?
+    var link: String?
+    var description: String?
+    var guid: String?
+    var pubdate: String?
+    var articletype: String?
 }

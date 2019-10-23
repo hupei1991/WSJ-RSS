@@ -43,17 +43,17 @@ extension RSSFeedMap {
         if let feedMap = RSSFeedMap.match(feedPath) {
             switch feedMap {
             case .rssChannelItemGUID:
-                feed.guid += value
+                feed.guid = (feed.guid ?? "") + value
             case .rssChannelItemArticleType:
-                feed.articletype += value
+                feed.articletype = (feed.articletype ?? "") + value
             case .rssChannelItemLink:
-                feed.link += value
+                feed.link = (feed.link ?? "") + value
             case .rssChannelItemPubDate:
-                feed.pubdate += value
+                feed.pubdate = (feed.pubdate ?? "") + value
             case .rssChannelItemDescription:
-                feed.description += value
+                feed.description = (feed.description ?? "") + value
             case .rssChannelItemTitle:
-                feed.title += value
+                feed.title = (feed.title ?? "") + value
             default:
                 break
             }

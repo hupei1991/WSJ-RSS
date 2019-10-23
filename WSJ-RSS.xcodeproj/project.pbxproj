@@ -16,6 +16,7 @@
 		AD25DCA2235CFD13002ABD22 /* RSSFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */; };
 		AD25DCA5235CFE65002ABD22 /* XMLFeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */; };
 		AD7159F6235FC3DC00F41D7D /* DateDisplayParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7159F5235FC3DC00F41D7D /* DateDisplayParser.swift */; };
+		AD7159F8236097C700F41D7D /* RSSFeedChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7159F7236097C700F41D7D /* RSSFeedChannel.swift */; };
 		ADBB9957235E02AA000E767F /* RSSFeedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB9956235E02AA000E767F /* RSSFeedMap.swift */; };
 		ADBB995A235E1376000E767F /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBB9959235E1376000E767F /* CommonWebViewController.swift */; };
 		ADCC5CBB235BAF080018CC3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCC5CBA235BAF080018CC3E /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedService.swift; sourceTree = "<group>"; };
 		AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLFeedParser.swift; sourceTree = "<group>"; };
 		AD7159F5235FC3DC00F41D7D /* DateDisplayParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateDisplayParser.swift; sourceTree = "<group>"; };
+		AD7159F7236097C700F41D7D /* RSSFeedChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedChannel.swift; sourceTree = "<group>"; };
 		ADBB9956235E02AA000E767F /* RSSFeedMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeedMap.swift; sourceTree = "<group>"; };
 		ADBB9959235E1376000E767F /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		ADCC5CB7235BAF080018CC3E /* WSJ-RSS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WSJ-RSS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				AD25DC9F235CF60C002ABD22 /* RSSFeedTableViewCell.swift */,
 				AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */,
 				ADBB9956235E02AA000E767F /* RSSFeedMap.swift */,
+				AD7159F7236097C700F41D7D /* RSSFeedChannel.swift */,
 			);
 			path = RSSFeed;
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 		AD25DCA3235CFE4E002ABD22 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */,
 				AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */,
 				AD7159F5235FC3DC00F41D7D /* DateDisplayParser.swift */,
 			);
@@ -208,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				ADCC5CF5235BC6500018CC3E /* channels.plist */,
-				ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */,
 			);
 			path = LocalData;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				AD25DCA0235CF60C002ABD22 /* RSSFeedTableViewCell.swift in Sources */,
 				AD7159F6235FC3DC00F41D7D /* DateDisplayParser.swift in Sources */,
 				ADCC5CBD235BAF080018CC3E /* SceneDelegate.swift in Sources */,
+				AD7159F8236097C700F41D7D /* RSSFeedChannel.swift in Sources */,
 				AD25DC8C235CE946002ABD22 /* RSSFeed.swift in Sources */,
 				ADBB995A235E1376000E767F /* CommonWebViewController.swift in Sources */,
 				AD25DC8A235CE569002ABD22 /* RSSFeedTableViewController.swift in Sources */,

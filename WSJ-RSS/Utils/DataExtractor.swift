@@ -33,10 +33,6 @@ class DataExtractor {
                     return nil
                 }
             }
-//            if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, Any> {
-//                print("Successfully extracted data from local")
-//                return dict
-//            }
         }
         print("Error: Unable to get data from local")
         return nil

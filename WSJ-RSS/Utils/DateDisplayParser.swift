@@ -9,7 +9,7 @@
 import Foundation
 
 class DateDisplayParser {
-    static func getDisplay(from rawString: String) -> String {
+    static func getDisplay(from rawString: String) -> String? {
         let inputDateFormatter = DateFormatter()
         inputDateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
         if let date = inputDateFormatter.date(from: rawString) {
@@ -25,6 +25,6 @@ class DateDisplayParser {
             return dateFormatter.string(from: date)
         }
         print("Error: Failed to parse date string: \(rawString)")
-        return "Unknown"
+        return nil
     }
 }
