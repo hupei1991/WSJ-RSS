@@ -11,7 +11,7 @@ protocol FeedView: class {
     func receivedTitle(with title: String)
     func startLoading()
     func finishLoading()
-    func receivedFeeds(with feeds: [RSSFeed])
+    func receivedFeedChannel(with feedChannel: RSSFeedChannel)
     func parsingFailed(error: XMLFeedParseError)
     
 }
@@ -38,9 +38,9 @@ class RSSFeedPresenter {
             if let channel = self.sourceChannel {
                 let parser = XMLFeedParser(with: channel.url)
                 switch parser.parse() {
-                case .success(let feeds):
+                case .success(let channel):
                     self.feedView?.finishLoading()
-                    self.feedView?.receivedFeeds(with: feeds)
+                    self.feedView?.receivedFeedChannel(with: channel)
                 case .failure(let error):
                     self.feedView?.finishLoading()
                     self.feedView?.parsingFailed(error: error)

@@ -30,7 +30,7 @@ extension XMLFeedParseError: LocalizedError {
 
 class XMLFeedParser: NSObject {
     private var url: URL
-    private var feeds: [RSSFeed] = []
+    private var feedChannel: RSSFeedChannel? = nil
     private var currentFeed: RSSFeed? = nil
     private var currentPath = URL(string: "/")!
     private var errorOccurred: Error? = nil
@@ -39,7 +39,7 @@ class XMLFeedParser: NSObject {
         self.url = url
     }
     
-    func parse() -> Result<[RSSFeed], XMLFeedParseError> {
+    func parse() -> Result<RSSFeedChannel, XMLFeedParseError> {
         do {
             let data = try Data(contentsOf: self.url)
             let parser = XMLParser(data: data)
@@ -49,7 +49,11 @@ class XMLFeedParser: NSObject {
                 return .failure(.failedToParse(reason: "Failed to parse by XMLParser"))
             }
             if self.errorOccurred == nil {
-                return .success(feeds)
+                if let feedChannel = self.feedChannel {
+                    return .success(feedChannel)
+                } else {
+                    return .failure(.failedToParse(reason: "Failed to initialize channel"))
+                }
             } else {
                 return .failure(.failedToParse(reason: self.errorOccurred!.localizedDescription))
             }
@@ -61,17 +65,20 @@ class XMLFeedParser: NSObject {
 
 extension XMLFeedParser: XMLParserDelegate {
     func parserDidStartDocument(_ parser: XMLParser) {
-        print("Start parsing")
+        print("XMLFeedParser starts parsing document")
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
-        print("End parsing")
+        print("XMLFeedParser ends parsing document")
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.currentPath = self.currentPath.appendingPathComponent(elementName)
         print("start: \(self.currentPath.absoluteString)")
         if let map = RSSFeedMap.match(self.currentPath.absoluteString) {
+            if map == .rssChannel {
+                self.feedChannel = RSSFeedChannel()
+            }
             if map == .rssChannelItem {
                 self.currentFeed = RSSFeed()
             }
@@ -83,7 +90,7 @@ extension XMLFeedParser: XMLParserDelegate {
         if let map = RSSFeedMap.match(self.currentPath.absoluteString) {
             if map == .rssChannelItem {
                 if let currentFeed = self.currentFeed {
-                    self.feeds.append(currentFeed)
+                    self.feedChannel?.items.append(currentFeed)
                 }
             }
         }
@@ -91,8 +98,12 @@ extension XMLFeedParser: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let santinizedValue = string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression)
+        if self.feedChannel != nil {
+            RSSFeedMap.mapRSSFeedChannel(for: &self.feedChannel!, at: self.currentPath.absoluteString, using: santinizedValue)
+        }
         if self.currentFeed != nil {
-            RSSFeedMap.map(for: &currentFeed!, at: self.currentPath.absoluteString, using: string.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: "\\s+", with: " ", options: .regularExpression))
+            RSSFeedMap.mapRSSFeed(for: &currentFeed!, at: self.currentPath.absoluteString, using: santinizedValue)
         }
     }
 

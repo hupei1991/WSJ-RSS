@@ -10,7 +10,7 @@ import UIKit
 
 class RSSFeedTableViewController: UITableViewController {
     private let presenter = RSSFeedPresenter()
-    private var feeds = [RSSFeed]()
+    private var feedChannel: RSSFeedChannel?
     
 //    @objc dynamic
     private var activityIndicator = UIActivityIndicatorView(style: .medium)
@@ -77,21 +77,23 @@ class RSSFeedTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.feeds.count
+        return self.feedChannel?.items.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RSSFeedTableViewCell", for: indexPath)
 
         // Configure the cell...
-        let feed = self.feeds[indexPath.row]
-        if let cell = cell as? RSSFeedTableViewCell {
-            cell.feedTitle.text = feed.title ?? "Unknown Title"
-            cell.feedDescription.text = feed.description ?? "Unknown Description"
-            if let pubdate = feed.pubdate {
-                cell.pubDate.text = DateDisplayParser.getDisplay(from: pubdate) ?? "[Unknown Publish Date]"
-            } else {
-                cell.pubDate.text = "[Unknown Publish Date]"
+        if let feedChannel = self.feedChannel {
+            let feed = feedChannel.items[indexPath.row]
+            if let cell = cell as? RSSFeedTableViewCell {
+                cell.feedTitle.text = feed.title ?? "Unknown Title"
+                cell.feedDescription.text = feed.description ?? "Unknown Description"
+                if let pubdate = feed.pubdate {
+                    cell.pubDate.text = DateDisplayParser.getDisplay(from: pubdate) ?? "[Unknown Publish Date]"
+                } else {
+                    cell.pubDate.text = "[Unknown Publish Date]"
+                }
             }
         }
 
@@ -99,16 +101,18 @@ class RSSFeedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let feed = self.feeds[indexPath.row]
-        if let link = feed.link, let url = URL(string: link) {
-            let viewController = CommonWebViewController(url)
-            self.navigationController?.pushViewController(viewController, animated: true)
-        } else {
-            let alert = UIAlertController(title: "Failure", message: "Failed to open this feed", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if let feedChannel = self.feedChannel {
+            let feed = feedChannel.items[indexPath.row]
+            if let link = feed.link, let url = URL(string: link) {
+                let viewController = CommonWebViewController(url)
+                self.navigationController?.pushViewController(viewController, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Failure", message: "Failed to open this feed", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            self.tableView.deselectRow(at: indexPath, animated: false)
         }
-        self.tableView.deselectRow(at: indexPath, animated: false)
     }
 
     /*
@@ -191,9 +195,9 @@ extension RSSFeedTableViewController: FeedView {
         }
     }
     
-    func receivedFeeds(with feeds: [RSSFeed]) {
-        print("received \(feeds.count) feeds")
-        self.feeds = feeds
+    func receivedFeedChannel(with feedChannel: RSSFeedChannel)  {
+        print("received \(feedChannel.items.count) feeds")
+        self.feedChannel = feedChannel
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

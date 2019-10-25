@@ -9,5 +9,10 @@
 import Foundation
 
 struct RSSFeedChannel {
-    var title: String = ""
+    var title: String?
+    var link: String?
+    var description: String?
+    var pubdate: String?
+    
+    var items: [RSSFeed] = []
 }

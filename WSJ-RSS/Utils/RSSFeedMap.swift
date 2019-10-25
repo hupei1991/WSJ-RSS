@@ -9,11 +9,11 @@
 import Foundation
 
 enum RSSFeedMap: String, CaseIterable {
-//    case rss                        = "/rss"
-//    case rssChannel                 = "/rss/channel"
-//    case rssChannelTitle            = "/rss/channel/title"
-//    case rssChannelLink             = "/rss/channel/link"
-//    case rssChannelDescription      = "/rss/channel/description"
+    case rssChannel                 = "/rss/channel"
+    case rssChannelTitle            = "/rss/channel/title"
+    case rssChannelLink             = "/rss/channel/link"
+    case rssChannelDescription      = "/rss/channel/description"
+    case rssChannelPubDate          = "/rss/channel/pubDate"
     
     case rssChannelItem             = "/rss/channel/item"
     case rssChannelItemTitle        = "/rss/channel/item/title"
@@ -38,9 +38,26 @@ extension RSSFeedMap {
         return nil
     }
     
+    static func mapRSSFeedChannel(for feedChannel: inout RSSFeedChannel, at path: String, using value: String) {
+        if let feedMap = RSSFeedMap.match(path) {
+            switch feedMap {
+            case .rssChannelTitle:
+                feedChannel.title = (feedChannel.title ?? "") + value
+            case .rssChannelLink:
+                feedChannel.link = (feedChannel.link ?? "") + value
+            case .rssChannelDescription:
+                feedChannel.link = (feedChannel.description ?? "") + value
+            case .rssChannelPubDate:
+                feedChannel.pubdate = (feedChannel.pubdate ?? "") + value
+            default:
+                break
+            }
+        }
+    }
     
-    static func map(for feed: inout RSSFeed, at feedPath: String, using value: String) {
-        if let feedMap = RSSFeedMap.match(feedPath) {
+    
+    static func mapRSSFeed(for feed: inout RSSFeed, at path: String, using value: String) {
+        if let feedMap = RSSFeedMap.match(path) {
             switch feedMap {
             case .rssChannelItemGUID:
                 feed.guid = (feed.guid ?? "") + value

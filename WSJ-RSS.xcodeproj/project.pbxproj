@@ -116,7 +116,6 @@
 				AD25DC8D235CE9A9002ABD22 /* RSSFeedPresenter.swift */,
 				AD25DC9F235CF60C002ABD22 /* RSSFeedTableViewCell.swift */,
 				AD25DCA1235CFD13002ABD22 /* RSSFeedService.swift */,
-				ADBB9956235E02AA000E767F /* RSSFeedMap.swift */,
 				AD7159F7236097C700F41D7D /* RSSFeedChannel.swift */,
 			);
 			path = RSSFeed;
@@ -125,6 +124,7 @@
 		AD25DCA3235CFE4E002ABD22 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ADBB9956235E02AA000E767F /* RSSFeedMap.swift */,
 				ADCC5CF7235BF5230018CC3E /* DataExtractor.swift */,
 				AD25DCA4235CFE65002ABD22 /* XMLFeedParser.swift */,
 				AD7159F5235FC3DC00F41D7D /* DateDisplayParser.swift */,
