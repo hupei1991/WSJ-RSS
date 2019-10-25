@@ -8,11 +8,9 @@
 
 import Foundation
 
-class DateDisplayParser {
+class DateParser {
     static func getDisplay(from rawString: String) -> String? {
-        let inputDateFormatter = DateFormatter()
-        inputDateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
-        if let date = inputDateFormatter.date(from: rawString) {
+        if let date = DateParser.getDate(from: rawString) {
             let dateFormatter = DateFormatter()
             if Calendar.current.isDateInToday(date) {
                 dateFormatter.dateStyle = .none
@@ -26,5 +24,11 @@ class DateDisplayParser {
         }
         print("Error: Failed to parse date string: \(rawString)")
         return nil
+    }
+    
+    static func getDate(from rawString: String) -> Date? {
+        let inputDateFormatter = DateFormatter()
+        inputDateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
+        return inputDateFormatter.date(from: rawString)
     }
 }

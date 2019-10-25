@@ -23,12 +23,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot.radiowaves.left.and.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KzL-qH-gHL">
-                                            <rect key="frame" x="20" y="16" width="26.5" height="36.5"/>
+                                            <rect key="frame" x="20" y="15.5" width="26.5" height="37"/>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="medium"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxd-cq-joc">
-                                            <rect key="frame" x="54.5" y="22" width="48" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <rect key="frame" x="54.5" y="22" width="49" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -77,13 +78,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="News Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQ0-f3-HJC">
-                                            <rect key="frame" x="20" y="15" width="89.5" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <rect key="frame" x="20" y="15" width="91.5" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 1, 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-6l-JHX">
-                                            <rect key="frame" x="20" y="46" width="70.5" height="34"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Jan 1, 2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-6l-JHX">
+                                            <rect key="frame" x="292.5" y="52.5" width="70.5" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -94,21 +95,29 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOq-zd-Fhm">
+                                            <rect key="frame" x="20" y="46" width="63" height="34"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="r9A-6l-JHX" firstAttribute="centerY" secondItem="c9L-k5-dk9" secondAttribute="centerY" id="61u-n6-vij"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NQ0-f3-HJC" secondAttribute="trailing" constant="20" symbolic="YES" id="9dH-Zv-hfa"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Pg6-pn-FK7" secondAttribute="trailing" constant="20" symbolic="YES" id="ABf-SN-5J7"/>
                                         <constraint firstAttribute="bottom" secondItem="Pg6-pn-FK7" secondAttribute="bottom" constant="15" id="B0D-nr-EZj"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r9A-6l-JHX" secondAttribute="trailing" constant="20" symbolic="YES" id="DYk-YI-XMe"/>
-                                        <constraint firstItem="r9A-6l-JHX" firstAttribute="leading" secondItem="NQ0-f3-HJC" secondAttribute="leading" id="Hct-6L-gC6"/>
-                                        <constraint firstItem="Pg6-pn-FK7" firstAttribute="leading" secondItem="r9A-6l-JHX" secondAttribute="leading" id="TXZ-ty-gvB"/>
+                                        <constraint firstItem="Pg6-pn-FK7" firstAttribute="leading" secondItem="NQ0-f3-HJC" secondAttribute="leading" id="BSt-YA-8Tb"/>
+                                        <constraint firstAttribute="trailing" secondItem="r9A-6l-JHX" secondAttribute="trailing" constant="20" symbolic="YES" id="DYk-YI-XMe"/>
+                                        <constraint firstItem="hOq-zd-Fhm" firstAttribute="top" secondItem="NQ0-f3-HJC" secondAttribute="bottom" constant="8" id="Fmf-WZ-hLC"/>
+                                        <constraint firstItem="hOq-zd-Fhm" firstAttribute="leading" secondItem="NQ0-f3-HJC" secondAttribute="leading" id="Phi-Jt-Dlg"/>
+                                        <constraint firstItem="Pg6-pn-FK7" firstAttribute="top" secondItem="hOq-zd-Fhm" secondAttribute="bottom" constant="8" id="Qqd-zi-jAi"/>
+                                        <constraint firstItem="r9A-6l-JHX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hOq-zd-Fhm" secondAttribute="trailing" constant="8" symbolic="YES" id="SDo-va-VpD"/>
                                         <constraint firstItem="NQ0-f3-HJC" firstAttribute="top" secondItem="c9L-k5-dk9" secondAttribute="top" constant="15" id="cuP-el-rLn"/>
                                         <constraint firstItem="NQ0-f3-HJC" firstAttribute="leading" secondItem="c9L-k5-dk9" secondAttribute="leading" constant="20" symbolic="YES" id="dFh-xP-rkk"/>
-                                        <constraint firstItem="Pg6-pn-FK7" firstAttribute="top" secondItem="r9A-6l-JHX" secondAttribute="bottom" constant="8" id="qMg-48-lVE"/>
-                                        <constraint firstItem="r9A-6l-JHX" firstAttribute="top" secondItem="NQ0-f3-HJC" secondAttribute="bottom" constant="8" id="wa3-M1-AyQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="category" destination="hOq-zd-Fhm" id="Lff-1L-z7H"/>
                                     <outlet property="feedDescription" destination="Pg6-pn-FK7" id="u4d-K0-Lan"/>
                                     <outlet property="feedTitle" destination="NQ0-f3-HJC" id="xcU-PF-6Is"/>
                                     <outlet property="pubDate" destination="r9A-6l-JHX" id="DFz-Jq-aBc"/>

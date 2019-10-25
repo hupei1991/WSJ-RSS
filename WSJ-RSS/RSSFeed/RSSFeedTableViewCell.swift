@@ -10,6 +10,7 @@ import UIKit
 
 class RSSFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var feedTitle: UILabel!
+    @IBOutlet weak var category: UILabel!
     @IBOutlet weak var pubDate: UILabel!
     @IBOutlet weak var feedDescription: UILabel!
     

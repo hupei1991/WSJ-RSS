@@ -18,6 +18,7 @@ protocol FeedView: class {
 
 class RSSFeedPresenter {
     weak private var feedView: FeedView?
+    private var service = RSSFeedService()
     var sourceChannel: RSSChannel?
     
     func attachView(with view: FeedView) {
@@ -36,16 +37,18 @@ class RSSFeedPresenter {
         feedView?.startLoading()
         DispatchQueue.global().async {
             if let channel = self.sourceChannel {
-                let parser = XMLFeedParser(with: channel.url)
-                switch parser.parse() {
-                case .success(let channel):
-                    self.feedView?.finishLoading()
-                    self.feedView?.receivedFeedChannel(with: channel)
-                case .failure(let error):
-                    self.feedView?.finishLoading()
-                    self.feedView?.parsingFailed(error: error)
+                switch self.service.getFeeds(with: channel){
+                    case .success(var channel):
+                        self.feedView?.finishLoading()
+                        channel.items.sort {
+                            lhs, rhs in
+                            DateParser.getDate(from: lhs.pubdate ?? "") ?? Date() > DateParser.getDate(from: rhs.pubdate ?? "") ?? Date()
+                        }
+                        self.feedView?.receivedFeedChannel(with: channel)
+                    case .failure(let error):
+                        self.feedView?.finishLoading()
+                        self.feedView?.parsingFailed(error: error)
                 }
-                
             } else {
                 self.feedView?.finishLoading()
                 print("Error: Presenter does not contain a source channel")

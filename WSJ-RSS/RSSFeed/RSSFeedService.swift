@@ -10,7 +10,8 @@ import Foundation
 
 class RSSFeedService {
     
-    func getFeeds(callback: @escaping ([RSSFeed]) -> Void) {
-        
+    func getFeeds(with channel: RSSChannel) -> Result<RSSFeedChannel, XMLFeedParseError> {
+        let parser = XMLFeedParser(with: channel.url)
+        return parser.parse()
     }
 }

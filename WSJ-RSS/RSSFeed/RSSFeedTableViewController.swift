@@ -87,10 +87,11 @@ class RSSFeedTableViewController: UITableViewController {
         if let feedChannel = self.feedChannel {
             let feed = feedChannel.items[indexPath.row]
             if let cell = cell as? RSSFeedTableViewCell {
-                cell.feedTitle.text = feed.title ?? "Unknown Title"
-                cell.feedDescription.text = feed.description ?? "Unknown Description"
+                cell.feedTitle.text = feed.title ?? "[Unknown Title]"
+                cell.category.text = feed.articletype ?? "[Unknown Category]"
+                cell.feedDescription.text = feed.description ?? "[Unknown Description]"
                 if let pubdate = feed.pubdate {
-                    cell.pubDate.text = DateDisplayParser.getDisplay(from: pubdate) ?? "[Unknown Publish Date]"
+                    cell.pubDate.text = DateParser.getDisplay(from: pubdate) ?? "[Unknown Publish Date]"
                 } else {
                     cell.pubDate.text = "[Unknown Publish Date]"
                 }
