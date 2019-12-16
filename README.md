@@ -3,8 +3,10 @@ Wall Street Jounal RSS Reader
 
 ## Screenshots
 - ### Main Page
-![MainPage](./Screenshots/Main.png)
+<img src="./Screenshots/Main.png" width="250">
+
 - ### Channel List
-![Channel](./Screenshots/Channel.png)
+<img src="./Screenshots/Channel.png" width="250">
+
 - ### Customized Web Viewer
-![WebViewer](./Screenshots/WebViewer.png)
+<img src="./Screenshots/WebViewer.png" width="250">
