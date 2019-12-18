@@ -1,5 +1,5 @@
 # WSJ-RSS
-Wall Street Jounal RSS Reader
+Wall Street Jounal RSS Reader without Third-party Libraries
 
 ## Description
 WSJ RSS Viewer using MVP architectural pattern. 
